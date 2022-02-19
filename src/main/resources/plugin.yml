@@ -1,0 +1,6 @@
+name: VulcanPaste
+version: 1.0-SNAPSHOT
+main: com.kuba256.vulcanpaste.VulcanPaste
+
+commands:
+  plogs:

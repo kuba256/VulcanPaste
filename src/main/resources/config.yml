@@ -1,0 +1,17 @@
+#PERMISSIONS: vulcanpaste.paste
+
+override-vulcan-command: true
+
+messages:
+  paste: "&7%player%'s violations: %url%"
+  no-violations: "&7Player %player% doesn't have any violations."
+  no-permission: "&7You don't have permission to execute this command!"
+  usage: "&7Usage: /logs <player>"
+
+urls:
+  endpoint: "https://paste.helpch.at/documents"
+  paste: "https://paste.helpch.at/%key%"
+
+http-request:
+  method: "POST"
+  response-key: "key"
