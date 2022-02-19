@@ -79,13 +79,13 @@ public class PasteCommand implements CommandExecutor {
         StringBuilder sb = new StringBuilder();
         File violationsFile = new File(plugin.getServer().getPluginManager().getPlugin("Vulcan").getDataFolder(), "violations.txt");
         byte[] data;
-        String violations = "";
+        String violations;
 
         try {
             data = Files.readAllBytes(Paths.get(violationsFile.getPath()));
             violations = new String(data);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
         Scanner scanner = new Scanner(violations);
