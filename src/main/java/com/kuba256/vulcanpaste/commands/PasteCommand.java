@@ -106,17 +106,17 @@ public class PasteCommand implements CommandExecutor {
 
         try {
             connection = (HttpURLConnection) getUrl().openConnection();
-            byte[] postData = fetchPlayerViolations(player).getBytes(StandardCharsets.UTF_8);
-            int postLengthData = postData.length;
+            byte[] requestData = fetchPlayerViolations(player).getBytes(StandardCharsets.UTF_8);
+            int requestDataLength = requestData.length;
             connection.setDoOutput(true);
             connection.setRequestMethod(plugin.getValue("http-request", "method"));
             connection.setRequestProperty("charset", "UTF-8");
             connection.setUseCaches(false);
-            connection.setRequestProperty("Content-Length", String.valueOf(postLengthData));
-            connection.addRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)");
+            connection.setRequestProperty("Content-Length", String.valueOf(requestDataLength));
+            connection.addRequestProperty("User-Agent", plugin.getValue("http-request", "user-agent"));
 
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-            wr.write(postData);
+            wr.write(requestData);
 
             return connection;
         } catch (IOException e) {
