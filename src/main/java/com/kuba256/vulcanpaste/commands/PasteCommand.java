@@ -49,7 +49,7 @@ public class PasteCommand implements CommandExecutor {
             String violations = fetchPlayerViolations(player);
 
             if (violations.equals("")) {
-                sender.sendMessage(plugin.getMessage("violations").replace("%player%", player));
+                sender.sendMessage(plugin.getMessage("no-violations").replace("%player%", player));
                 return;
             }
 
