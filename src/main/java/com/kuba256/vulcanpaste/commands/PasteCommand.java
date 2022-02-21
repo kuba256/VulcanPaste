@@ -128,7 +128,6 @@ public class PasteCommand implements CommandExecutor {
         try {
             return new URL(plugin.getValue("urls", "endpoint"));
         } catch (MalformedURLException e) {
-            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
